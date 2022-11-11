@@ -122,8 +122,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
-	{ MODKEY|ControlMask,           XK_Right,  shiftview,       {.i = +1 } },
-	{ MODKEY|ControlMask,           XK_Left,   shiftview,       {.i = -1 } },
+	{ MODKEY,           XK_Right,  shiftview,       {.i = +1 } },
+	{ MODKEY,           XK_Left,   shiftview,       {.i = -1 } },
 };
 
 /* button definitions */
