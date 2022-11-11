@@ -22,8 +22,8 @@ static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%"
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
  
 /* backlight */
-static const char *brightnessup[] = { "xbacklight", "-inc", "5", NULL };
-static const char *brightnessdown[] = { "xbacklight", "-dec", "5", NULL };
+static const char *brightnessup[] = { "~/scripts/sunshine.sh", "up", NULL };
+static const char *brightnessdown[] = { "~/scripts/sunshine.sh", "down", NULL };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
