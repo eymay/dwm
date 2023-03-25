@@ -81,7 +81,12 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "gnome-terminal", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *printcmd[]  = { "flameshot", "screen", NULL };
+static const char *sscmd[]  = { "flameshot", "launcher" , NULL };
+static const char *playpausecmd[]  = { "playerctl", "play-pause" , NULL };
+static const char *playernextcmd[]  = { "playerctl", "next" , NULL };
+static const char *playerprevcmd[]  = { "playerctl", "previous" , NULL };
 /** Function to shift the current view to the left/right
  *
  * @param: "arg->i" stores the number of tags to shift right (positive value)
@@ -105,6 +110,14 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ 0     ,                       XK_Print,  spawn,          {.v = printcmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = sscmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = playpausecmd } },
+	//{ MODKEY,                       XK_n,      spawn,          {.v = playernextcmd } },
+	//{ MODKEY,                       XK_p,      spawn,          {.v = playerprevcmd } },
+	{ 0     ,              XF86XK_AudioPlay,   spawn,          {.v = playpausecmd } },
+	{ 0     ,              XF86XK_AudioNext,   spawn,          {.v = playernextcmd } },
+	{ 0     ,              XF86XK_AudioPrev,   spawn,          {.v = playerprevcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
