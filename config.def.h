@@ -23,8 +23,8 @@ static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%"
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
  
 /* backlight */
-static const char *brightnessup[] = { "~/scripts/sunshine.sh", "up", NULL };
-static const char *brightnessdown[] = { "~/scripts/sunshine.sh", "down", NULL };
+// static const char *brightnessup[] = { "~/scripts/sunshine.sh", "up", NULL };
+// static const char *brightnessdown[] = { "~/scripts/sunshine.sh", "down", NULL };
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_black, col_gray2 },
@@ -87,6 +87,7 @@ static const char *sscmd[]  = { "flameshot", "launcher" , NULL };
 static const char *playpausecmd[]  = { "playerctl", "play-pause" , NULL };
 static const char *playernextcmd[]  = { "playerctl", "next" , NULL };
 static const char *playerprevcmd[]  = { "playerctl", "previous" , NULL };
+// static const char *searchcopycmd[]  = { "/home/eymen/scripts/search_copy.sh" , NULL };
 /** Function to shift the current view to the left/right
  *
  * @param: "arg->i" stores the number of tags to shift right (positive value)
@@ -113,6 +114,8 @@ static const Key keys[] = {
 	{ 0     ,                       XK_Print,  spawn,          {.v = printcmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = sscmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = playpausecmd } },
+	// FIXME Not working
+	// { MODKEY,             	        XK_a,      spawn,          SHCMD(searchcopycmd) },
 	//{ MODKEY,                       XK_n,      spawn,          {.v = playernextcmd } },
 	//{ MODKEY,                       XK_p,      spawn,          {.v = playerprevcmd } },
 	{ 0     ,              XF86XK_AudioPlay,   spawn,          {.v = playpausecmd } },
@@ -164,8 +167,8 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioLowerVolume,  spawn,             {.v = downvol} },
 	{ 0, XF86XK_AudioMute, 	       spawn,             {.v = mutevol }},
 	{ 0, XF86XK_AudioRaiseVolume,  spawn,             {.v = upvol} },
-	{ 0, XF86XK_MonBrightnessUp,   spawn,             {.v = brightnessup} },
-	{ 0, XF86XK_MonBrightnessDown, spawn,             {.v = brightnessdown} },
+	// { 0, XF86XK_MonBrightnessUp,   spawn,             {.v = brightnessup} },
+	// { 0, XF86XK_MonBrightnessDown, spawn,             {.v = brightnessdown} },
 };
 
 /* button definitions */
